@@ -3,8 +3,8 @@
 const listaNombres = document.getElementById('lista-nombres');
 const listaActividades = document.getElementById('lista-actividades');
 const ArrayNombres = [
-    { nombre: 'Leila', flag: false },
-    { nombre: 'Laura', flag: false }/*,
+    { nombre: 'Leila', flag: false }/*,
+    { nombre: 'Laura', flag: false },
     { nombre: 'Fernanda', flag: false },
     { nombre: 'Diana', flag: false },
     { nombre: 'Paola', flag: false },
@@ -54,7 +54,7 @@ window.onload = function () {
     imprimirActividades();
 };
 
-//Funcion que genera nuemeros aleatorios.
+//Funcion que genera nuemeros aleatorios con intervalo.
 function numeroAleatorio(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
@@ -106,6 +106,7 @@ function generarHorario(e) {
     //Limpio el div cronograma y cambio el estado de las acciones
     const reinicio = document.getElementById('reiniciar').disabled;
 
+    //Dependiendo del botón que precionen hace una opcion.
     if (reinicio) {
         document.getElementById('reiniciar').disabled = false;
         document.getElementById('generar').disabled = true;
@@ -128,7 +129,7 @@ function generarTabla() {
     const encabezado = document.createElement('thead');
     const fila1 = document.createElement('tr');
 
-    //Dentro de la fina de encabezado agrego 2 columnas y sus nombres
+    //Dentro de la fila de encabezado agrego 6 columnas y sus nombres
     const columna1 = document.createElement('th');
     columna1.innerText = 'Nombre';
 
@@ -138,6 +139,15 @@ function generarTabla() {
     const columna3 = document.createElement('th');
     columna3.innerText = 'Martes';
 
+    const columna4 = document.createElement('th');
+    columna4.innerText = 'Miercoles';
+
+    const columna5 = document.createElement('th');
+    columna5.innerText = 'Jueves';
+
+    const columna6 = document.createElement('th');
+    columna6.innerText = 'Viernes';
+
     //Contruyo el cuerpo de la tabla con otra fila
     const contenido = document.createElement('tbody');
 
@@ -145,23 +155,37 @@ function generarTabla() {
         //Por cada nombre agrego una fila
         const fila2 = document.createElement('tr');
 
-        //Imprimo el nombre de un empelado en la segunda columna
+        //Imprimo el nombre de un empelado en la primera columna
         const col1 = document.createElement('td');
         col1.innerText = nombreAleatorio();
         fila2.appendChild(col1);
 
-        //Por cada actividad genero una fila y lo agrego a la columna 2
-        let bloque = verificaTarea();
-        let lista='';
-
+        //Para imprimir las actividades agrego otra columna y dentro las imprimo con una lista
         const col2 = document.createElement('td');
 
-        for (let i = 0; i < bloque.length; i++) {
-            lista += bloque[i].tarea +'\n';
-            col2.innerText = lista;
+        //Inicio la contruccion de la lista.
+        const lista =document.createElement('ul');
+        lista.classList='list-group list-group-flush';
 
-            fila2.appendChild(col2);
+        //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
+        let bloque = verificaTarea();
+
+        for (let ind = 0; ind < bloque.length; ind++) {
+            const elemento =document.createElement('li');
+            elemento.classList='list-group-item d-flex justify-content-between align-items-center list-group-flush';
+            elemento.innerText = bloque[i].tarea;
+
+            const horas = document.createElement('span');
+            horas.classList = 'badge badge-primary badge-pill';
+            horas.innerText = 'hrs: ';
+            //col2.innerText = lista;
+
+            elemento.appendChild(horas);
+            lista.appendChild(elemento);
         }
+        
+        col2.appendChild(lista);
+        fila2.appendChild(col2);
         contenido.appendChild(fila2);
     }
 
@@ -169,6 +193,9 @@ function generarTabla() {
     encabezado.appendChild(columna1);
     encabezado.appendChild(columna2);
     encabezado.appendChild(columna3);
+    encabezado.appendChild(columna4);
+    encabezado.appendChild(columna5);
+    encabezado.appendChild(columna6);
 
     fila1.appendChild(encabezado);
     tabla.appendChild(encabezado);
