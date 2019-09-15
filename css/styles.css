@@ -1,0 +1,22 @@
+.fm-nav a {
+    color: #fff;
+    padding: 15px;
+    }
+
+.fm-nav .disabled {
+    color: rgb(255, 255, 255, .5);
+}
+
+.fm-nav a:hover {
+    background: rgb(255, 255, 255, .1);
+}
+
+#itz{
+    height: 50px;
+    width: 50px;
+}
+
+#tnm{
+    height: 50px;
+    width: 100px;
+}
