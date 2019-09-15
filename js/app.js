@@ -4,7 +4,7 @@ const listaNombres = document.getElementById('lista-nombres');
 const listaActividades = document.getElementById('lista-actividades');
 const ArrayNombres = [
     { nombre: 'Leila', flag: false },
-    { nombre: 'Laura', flag: false },
+    { nombre: 'Laura', flag: false }/*,
     { nombre: 'Fernanda', flag: false },
     { nombre: 'Diana', flag: false },
     { nombre: 'Paola', flag: false },
@@ -12,7 +12,7 @@ const ArrayNombres = [
     { nombre: 'Alejandra', flag: false },
     { nombre: 'Abigail', flag: false },
     { nombre: 'Enya', flag: false },
-    { nombre: 'Gloria', flag: false }
+    { nombre: 'Gloria', flag: false }*/
 ];
 const ArrayActividades = [
     { tarea: 'Barrer pasillos', hrs: 1, flag: false },
@@ -110,7 +110,7 @@ function generarHorario(e) {
         document.getElementById('reiniciar').disabled = false;
         document.getElementById('generar').disabled = true;
 
-        generarCard();
+        generarTabla();
     } else {
         document.getElementById('reiniciar').disabled = true;
         document.getElementById('generar').disabled = false;
@@ -118,83 +118,60 @@ function generarHorario(e) {
     }
 }
 
-/*
-<table class="table table-hover table-dark">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-    </tbody>
-</table>
-*/
-
 //Genero una card para cada empleado y dentro le integro sus actividades
-function generarCard() {
+function generarTabla() {
+    //Contruyo la tabla
+    const tabla = document.createElement('table');
+    tabla.classList = 'table table-hover table-dark';
+
+    //Construyo el encabezado de la tabla y con una fila
+    const encabezado = document.createElement('thead');
+    const fila1 = document.createElement('tr');
+
+    //Dentro de la fina de encabezado agrego 2 columnas y sus nombres
+    const columna1 = document.createElement('th');
+    columna1.innerText = 'Nombre';
+
+    const columna2 = document.createElement('th');
+    columna2.innerText = 'Lunes';
+
+    const columna3 = document.createElement('th');
+    columna3.innerText = 'Martes';
+
+    //Contruyo el cuerpo de la tabla con otra fila
+    const contenido = document.createElement('tbody');
+
     for (let i = 0; i < ArrayNombres.length; i++) {
-        // Crear todos los elementos del card.
-        const card = document.createElement('div');
-        card.classList = 'card shadow bg-white rounded m-3 float-right';
-        card.style.width = '20rem';
+        //Por cada nombre agrego una fila
+        const fila2 = document.createElement('tr');
 
-        const head = document.createElement('div');
-        head.classList = 'card-header';
+        //Imprimo el nombre de un empelado en la segunda columna
+        const col1 = document.createElement('td');
+        col1.innerText = nombreAleatorio();
+        fila2.appendChild(col1);
 
-        const titulo = document.createElement('h5');
-        titulo.classList = 'card-title text-center';
-        titulo.innerText = nombreAleatorio();
-
-        const body = document.createElement('div');
-        body.classList = 'card-body';
-
-        const lista = document.createElement('ul');
-        lista.classList = 'list-group list-group-flush';
-
-        //Por cada actividad genero un li y lo agrego a su respectiva card
+        //Por cada actividad genero una fila y lo agrego a la columna 2
         let bloque = verificaTarea();
-        let ahrs = 0;
+
         for (let i = 0; i < bloque.length; i++) {
-            const elemento = document.createElement('li');
-            elemento.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush';
-            elemento.innerText = bloque[i].tarea;
 
-            const horas = document.createElement('span');
-            horas.classList = 'badge badge-primary badge-pill';
-            horas.innerText = 'hrs: ' + bloque[i].hrs;
+            const col2 = document.createElement('td');
+            col2.innerText = bloque[i].tarea;
 
-            ahrs += bloque[i].hrs;
-
-            elemento.appendChild(horas);
-            lista.appendChild(elemento);
+            fila2.appendChild(col2);
         }
-
-        const footer = document.createElement('div');
-
-        if (ahrs == 8) {
-            footer.classList = 'card-footer text-muted';
-        } else {
-            footer.classList = 'card-footer text-muted border-danger';
-        }
-
-        footer.innerText = 'Total de horas: ' + ahrs + '\nTotal de actividades: ' + bloque.length;
-
-        body.appendChild(lista);
-        head.appendChild(titulo);
-        card.appendChild(head);
-        card.appendChild(body);
-        card.appendChild(footer);
-        cronograma.appendChild(card);
+        contenido.appendChild(fila2);
     }
+
+    //Agrego cada elemento a la tabala
+    encabezado.appendChild(columna1);
+    encabezado.appendChild(columna2);
+    encabezado.appendChild(columna3);
+
+    fila1.appendChild(encabezado);
+    tabla.appendChild(encabezado);
+    tabla.appendChild(contenido);
+    cronograma.appendChild(tabla);
 }
 
 function verificaTarea() {
@@ -207,7 +184,7 @@ function verificaTarea() {
             proximasuma = thoras + actividad.hrs;
 
             if (proximasuma < 9) {
-                ArrayAsignacion[aux] = { tarea: actividad.actividad, hrs: actividad.hrs };
+                ArrayAsignacion[aux] = { tarea: actividad.actividad };
                 thoras += actividad.hrs;
                 aux++;
 
