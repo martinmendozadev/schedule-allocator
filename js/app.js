@@ -152,11 +152,13 @@ function generarTabla() {
 
         //Por cada actividad genero una fila y lo agrego a la columna 2
         let bloque = verificaTarea();
+        let lista='';
+
+        const col2 = document.createElement('td');
 
         for (let i = 0; i < bloque.length; i++) {
-
-            const col2 = document.createElement('td');
-            col2.innerText = bloque[i].tarea;
+            lista += bloque[i].tarea +'\n';
+            col2.innerText = lista;
 
             fila2.appendChild(col2);
         }
