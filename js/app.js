@@ -118,6 +118,27 @@ function generarHorario(e) {
     }
 }
 
+/*
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+    </tbody>
+</table>
+*/
+
 //Genero una card para cada empleado y dentro le integro sus actividades
 function generarCard() {
     for (let i = 0; i < ArrayNombres.length; i++) {
