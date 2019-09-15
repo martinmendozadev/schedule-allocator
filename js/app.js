@@ -19,32 +19,32 @@ const ArrayActividades = [
     { tarea: 'Trapear pasillos', hrs: 2, flag: false },
     { tarea: 'Limpiar pizarrones', hrs: 3, flag: false },
     { tarea: 'Limpiar ventanas', hrs: 4, flag: false },
-    { tarea: 'Sacar la basura de los salones', hrs: 5, flag: false },
+    { tarea: 'Sacar la basura de los salones', hrs: 2, flag: false },
     { tarea: 'Acomodar butacas', hrs: 4, flag: false },
     { tarea: 'Limpiar barandal', hrs: 1, flag: false },
     { tarea: 'Barrer cubos de los maestros', hrs: 2, flag: false },
-    { tarea: 'Barrer pasillos 2', hrs: 3, flag: false },
-    { tarea: 'Trapear pasillos 2', hrs: 5, flag: false },
-    { tarea: 'Limpiar pizarrones 2', hrs: 2, flag: false },
-    { tarea: 'Limpiar ventanas 2', hrs: 3, flag: false },
-    { tarea: 'Sacar la basura de los salones 2', hrs: 1, flag: false },
-    { tarea: 'Acomodar butacas 2', hrs: 4, flag: false },
-    { tarea: 'Limpiar barandal 2', hrs: 5, flag: false },
-    { tarea: 'Barrer cubos de los maestros 2', hrs: 8, flag: false },
-    { tarea: 'Barrer pasillos 3', hrs: 1, flag: false },
-    { tarea: 'Trapear pasillos 3', hrs: 2, flag: false },
-    { tarea: 'Limpiar pizarrones 3', hrs: 3, flag: false },
-    { tarea: 'Limpiar ventanas 3', hrs: 4, flag: false },
-    { tarea: 'Sacar la basura de los salones 3', hrs: 5, flag: false },
-    { tarea: 'Acomodar butacas 3', hrs: 8, flag: false },
-    { tarea: 'Limpiar barandal 3', hrs: 1, flag: false },
-    { tarea: 'Barrer cubos de los maestros 3', hrs: 2, flag: false },
-    { tarea: 'Limpiar pizarrones 4', hrs: 3, flag: false },
-    { tarea: 'Limpiar ventanas 4', hrs: 4, flag: false },
-    { tarea: 'Sacar la basura de los salones 4', hrs: 5, flag: false },
-    { tarea: 'Acomodar butacas 4', hrs: 3, flag: false },
-    { tarea: 'Limpiar barandal 4', hrs: 1, flag: false },
-    { tarea: 'Barrer cubos de los maestros 4', hrs: 2, flag: false }
+    { tarea: 'Trapear cubos de los maestros', hrs: 3, flag: false },
+    { tarea: 'Colocar papel de baño', hrs: 5, flag: false },
+    { tarea: 'Quitar telarañas', hrs: 2, flag: false },
+    { tarea: 'Limpiar puertas', hrs: 3, flag: false },
+    { tarea: 'Barrer lobby', hrs: 1, flag: false },
+    { tarea: 'Trapear lobby', hrs: 2, flag: false },
+    { tarea: 'Barrer el laboratorio de robotica', hrs: 5, flag: false },
+    { tarea: 'Trapear el laboratorio de robotica', hrs: 8, flag: false },
+    { tarea: 'Limpiar baño de las niñas superior', hrs: 1, flag: false },
+    { tarea: 'Limpiar baño de las niñas inferior', hrs: 2, flag: false },
+    { tarea: 'Limpiar baño de los niños superior', hrs: 1, flag: false },
+    { tarea: 'Limpiar baño de los niños inferior', hrs: 4, flag: false },
+    { tarea: 'Limpiar espejos de baños', hrs: 2, flag: false },
+    { tarea: 'Rellenar jabón de manos', hrs: 8, flag: false },
+    { tarea: 'Barrer escaleras', hrs: 1, flag: false },
+    { tarea: 'Trapear las escaleras', hrs: 2, flag: false },
+    { tarea: 'Reportar daños a mantenimiento', hrs: 3, flag: false },
+    { tarea: 'Levar al deposito la basura del edificio', hrs: 4, flag: false },
+    { tarea: 'Limpiar mesas de lobby', hrs: 5, flag: false },
+    { tarea: 'Limpiar asientos del lobby', hrs: 3, flag: false },
+    { tarea: 'Recojer la basura de los contenedores de los pasillos', hrs: 1, flag: false },
+    { tarea: 'Limpiar su material de trabajo', hrs: 2, flag: false }
 ];
 
 //Funciones que cargan al iniciar la pagina.
@@ -91,7 +91,6 @@ function imprimirActividades() {
         listaActividades.appendChild(li);
     });
 }
-
 
 // Event Listeners
 eventListener();

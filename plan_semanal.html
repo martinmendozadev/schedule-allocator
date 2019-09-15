@@ -17,51 +17,95 @@
     <div class="container">
 
         <div class="row">
-            <div class="col">
-                <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <h1 class="display-4 text-center">Generador de Cronograma</h1>
-                        <p class="lead text-justify">Este programa es un generador automatico de un cronograma
-                            actividades para una flotilla de trabajadores de limpieza.</p>
+            <div class="col my-4">
+                <ul class="fm-nav nav bg-dark text-white">
+                    <li class="nav-item">
+                        <a href="index.html" id="" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link" data-toggle="modal" data-target="#fm-modal">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="plan_semanal.html" class="nav-link disabled">Programa</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal fade" id="fm-modal" tabindex="-1" role="dialog" aria-labelledby="fm-modal"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">About Me</h5>
+                            <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="jumbotron">
+                                            <img src="images/TNM.png" alt="TNM" id="tnm" class="float-left">
+                                            <img src="images/ITZ.png" alt="ITZ" id="itz" class="float-right">
+
+                                            <br><br><br>
+                                            <h3 class="text-center">TECNOLÓGICO NACIONAL DE MÉXICO
+                                                <br>INSTITUTO TECNOLÓGICO DE ZACATEPEC
+                                            </h3>
+                                            <hr>
+
+                                            <p> <strong>Carrera:</strong> Ingeniería en Sistemas Computacionales</p>
+                                            <p> <strong>Materia:</strong> Programación Lógica y Funcional</p>
+                                            <p> <strong>Nombre:</strong> Gómez Mendoza Martin Carlos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row my-5">
-            <div class="col border"><h3 class="text-center">Plan Semanal para Trabajadores</h3>
+        <div class="col border border-secondary shadow-sm bg-white rounded">
+            <h3 class="text-center">Acción</h3>
+            <hr>
+            <div class="row mt-3">
+                <div class="col-10 m-2">
+                    <form action="#" id="formulario">
+                        <input type="submit" id="generar" class="btn btn-success" value="Generar">
+                    </form>
+                </div>
+
+                <div class="col-1 m-2">
+                    <form action="#" id="formulario2">
+                        <input type="submit" id="reiniciar" class="btn btn-secondary" value="Reiniciar" disabled>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5 border shadow-sm bg-white rounded">
+            <div class="col border">
+                <h3 class="text-center">Plan Semanal para Trabajadores</h3>
+                <hr>
                 <div id="cronograma" class="col"></div>
             </div>
         </div>
 
-        <div class="row mt-4">
-            <div class="col-2 border">
+        <div class="row mt-4 border  shadow-sm bg-white rounded">
+            <div class="col-5">
                 <h3 class="text-center">Trabajadores</h3>
+                <hr>
                 <div id="lista-nombres" class="shadow-sm bg-white rounded my-3"></div>
             </div>
 
-            <div class="col-4 ml-5 border">
+            <div class="col-5 ml-5">
                 <h3 class="text-center">Lista de Actividades</h3>
+                <hr>
                 <div id="lista-actividades" class="shadow-sm bg-white rounded my-3"></div>
-            </div>
-
-            <div class="col-4 ml-5 border">
-                <h3 class="text-center">Acción</h3>
-                <div class="row mt-3">
-                    <div class="col-6">
-                        <form action="#" id="formulario">
-                            <label for="generar"></label>
-                            <input type="submit" id="generar" class="btn btn-success" value="Generar">
-                        </form>
-                    </div>
-
-                    <div class="col-6">
-                        <form action="#" id="formulario2">
-                            <label for="reiniciar"></label>
-                            <input type="submit" id="reiniciar" class="btn btn-secondary" value="Reiniciar" disabled>
-                        </form>
-                    </div>
-                </div>
             </div>
 
         </div>
