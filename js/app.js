@@ -3,9 +3,9 @@
 const listaNombres = document.getElementById('lista-nombres');
 const listaActividades = document.getElementById('lista-actividades');
 const ArrayNombres = [
-    { nombre: 'Leila', flag: false }/*,
+    { nombre: 'Leila', flag: false },
     { nombre: 'Laura', flag: false },
-    { nombre: 'Fernanda', flag: false },
+    { nombre: 'Fernanda', flag: false }/*,
     { nombre: 'Diana', flag: false },
     { nombre: 'Paola', flag: false },
     { nombre: 'Magnolia', flag: false },
@@ -123,7 +123,7 @@ function generarHorario(e) {
 function generarTabla() {
     //Contruyo la tabla
     const tabla = document.createElement('table');
-    tabla.classList = 'table table-hover table-dark';
+    tabla.classList = 'table table-hover table-striped table-dark table-bordered';
 
     //Construyo el encabezado de la tabla y con una fila
     const encabezado = document.createElement('thead');
@@ -150,6 +150,7 @@ function generarTabla() {
 
     //Contruyo el cuerpo de la tabla con otra fila
     const contenido = document.createElement('tbody');
+    contenido.classList='thead-light';
 
     for (let i = 0; i < ArrayNombres.length; i++) {
         //Por cada nombre agrego una fila
@@ -172,8 +173,8 @@ function generarTabla() {
 
         for (let ind = 0; ind < bloque.length; ind++) {
             const elemento =document.createElement('li');
-            elemento.classList='list-group-item d-flex justify-content-between align-items-center list-group-flush';
-            elemento.innerText = bloque[i].tarea;
+            elemento.classList='list-group-item d-flex justify-content-between align-items-center list-group-flush text-primary';
+            elemento.innerText = bloque[ind].tarea;
 
             const horas = document.createElement('span');
             horas.classList = 'badge badge-primary badge-pill';
