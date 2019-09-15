@@ -178,8 +178,7 @@ function generarTabla() {
 
             const horas = document.createElement('span');
             horas.classList = 'badge badge-primary badge-pill';
-            horas.innerText = 'hrs: ';
-            //col2.innerText = lista;
+            horas.innerText = 'hrs: '+ bloque[ind].hrs;
 
             elemento.appendChild(horas);
             lista.appendChild(elemento);
@@ -214,7 +213,7 @@ function verificaTarea() {
             proximasuma = thoras + actividad.hrs;
 
             if (proximasuma < 9) {
-                ArrayAsignacion[aux] = { tarea: actividad.actividad };
+                ArrayAsignacion[aux] = { tarea: actividad.actividad, hrs: actividad.hrs };
                 thoras += actividad.hrs;
                 aux++;
 
