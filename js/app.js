@@ -118,6 +118,9 @@ function generarHorario(e) {
 }
 
 //Genero una card para cada empleado y dentro le integro sus actividades
+let fila2;
+let contenido;
+
 function generarTabla() {
     //Contruyo la tabla
     const tabla = document.createElement('table');
@@ -147,12 +150,12 @@ function generarTabla() {
     columna6.innerText = 'Viernes';
 
     //Contruyo el cuerpo de la tabla con otra fila
-    const contenido = document.createElement('tbody');
+    contenido = document.createElement('tbody');
     contenido.classList = 'thead-light';
 
     for (let i = 0; i < ArrayNombres.length; i++) {
         //Por cada nombre agrego una fila
-        const fila2 = document.createElement('tr');
+        fila2 = document.createElement('tr');
 
         //Imprimo el nombre de un empelado en la primera columna
         const col1 = document.createElement('td');
@@ -169,147 +172,11 @@ function generarTabla() {
         //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
         let bloque = verificaTarea();
 
-        for (let ind = 0; ind < bloque.length; ind++) {
-            const elemento = document.createElement('li');
-            elemento.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush text-dark';
-            elemento.innerText = bloque[ind].tarea;
-
-            const horas = document.createElement('span');
-            horas.classList = 'badge badge-primary badge-pill';
-            horas.innerText = 'hrs: ' + bloque[ind].hrs;
-
-            elemento.appendChild(horas);
-            lista.appendChild(elemento);
-        }
-
-        //
-        //Aqui INICIA la posible integrecion de los demás diías.
-        //
-        //MARTES//
-
-        resetTareas();
-
-        //Para imprimir las actividades agrego otra columna y dentro las imprimo con una lista
-        const col21 = document.createElement('td');
-
-        //Inicio la contruccion de la lista.
-        const lista1 = document.createElement('ul');
-        lista1.classList = 'list-group list-group-flush';
-
-        //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
-        let bloque1 = verificaTarea();
-
-        for (let ind1 = 0; ind1 < bloque1.length; ind1++) {
-            const elemento1 = document.createElement('li');
-            elemento1.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush text-dark';
-            elemento1.innerText = bloque1[ind1].tarea;
-
-            const horas1 = document.createElement('span');
-            horas1.classList = 'badge badge-primary badge-pill';
-            horas1.innerText = 'hrs: ' + bloque1[ind1].hrs;
-
-            elemento1.appendChild(horas1);
-            lista1.appendChild(elemento1);
-        }
-
-        col21.appendChild(lista1);
-        fila2.appendChild(col21);
-        contenido.appendChild(fila2);
-
-
-        //MIERCOLES//
-        resetTareas();
-        //Para imprimir las actividades agrego otra columna y dentro las imprimo con una lista
-        const col22 = document.createElement('td');
-
-        //Inicio la contruccion de la lista.
-        const lista2 = document.createElement('ul');
-        lista2.classList = 'list-group list-group-flush';
-
-        //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
-        let bloque2 = verificaTarea();
-
-        for (let ind2 = 0; ind2 < bloque2.length; ind2++) {
-            const elemento2 = document.createElement('li');
-            elemento2.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush text-dark';
-            elemento2.innerText = bloque2[ind2].tarea;
-
-            const horas2 = document.createElement('span');
-            horas2.classList = 'badge badge-primary badge-pill';
-            horas2.innerText = 'hrs: ' + bloque2[ind2].hrs;
-
-            elemento2.appendChild(horas2);
-            lista2.appendChild(elemento2);
-        }
-
-        col22.appendChild(lista2);
-        fila2.appendChild(col22);
-        contenido.appendChild(fila2);
-
-
-        //JUEVES//
-        resetTareas();
-        //Para imprimir las actividades agrego otra columna y dentro las imprimo con una lista
-        const col23 = document.createElement('td');
-
-        //Inicio la contruccion de la lista.
-        const lista3 = document.createElement('ul');
-        lista3.classList = 'list-group list-group-flush';
-
-        //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
-        let bloque3 = verificaTarea();
-
-        for (let ind3 = 0; ind3 < bloque3.length; ind3++) {
-            const elemento3 = document.createElement('li');
-            elemento3.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush text-dark';
-            elemento3.innerText = bloque3[ind3].tarea;
-
-            const horas3 = document.createElement('span');
-            horas3.classList = 'badge badge-primary badge-pill';
-            horas3.innerText = 'hrs: ' + bloque3[ind3].hrs;
-
-            elemento3.appendChild(horas3);
-            lista3.appendChild(elemento3);
-        }
-
-        col23.appendChild(lista3);
-        fila2.appendChild(col23);
-        contenido.appendChild(fila2);
-
-
-        //VIERNES//
-        resetTareas();
-        //Para imprimir las actividades agrego otra columna y dentro las imprimo con una lista
-        const col24 = document.createElement('td');
-
-        //Inicio la contruccion de la lista.
-        const lista4 = document.createElement('ul');
-        lista4.classList = 'list-group list-group-flush';
-
-        //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
-        let bloque4 = verificaTarea();
-
-        for (let ind4 = 0; ind4 < bloque4.length; ind4++) {
-            const elemento4 = document.createElement('li');
-            elemento4.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush text-dark';
-            elemento4.innerText = bloque4[ind4].tarea;
-
-            const horas4 = document.createElement('span');
-            horas4.classList = 'badge badge-primary badge-pill';
-            horas4.innerText = 'hrs: ' + bloque4[ind4].hrs;
-
-            elemento4.appendChild(horas4);
-            lista4.appendChild(elemento4);
-        }
-
-        col24.appendChild(lista4);
-        fila2.appendChild(col24);
-        contenido.appendChild(fila2);
-
-
-        //
-        //Aqui TERMINA la posible integrecion de los demás días.
-        //
+        bloqueDias();
+        bloqueDias();
+        bloqueDias();
+        bloqueDias();
+        bloqueDias();
 
         col2.appendChild(lista);
         fila2.appendChild(col2);
@@ -330,6 +197,37 @@ function generarTabla() {
     tabla.appendChild(encabezado);
     tabla.appendChild(contenido);
     cronograma.appendChild(tabla);
+}
+
+function bloqueDias() {
+    //VIERNES//
+    resetTareas();
+    //Para imprimir las actividades agrego otra columna y dentro las imprimo con una lista
+    const col24 = document.createElement('td');
+
+    //Inicio la contruccion de la lista.
+    const lista4 = document.createElement('ul');
+    lista4.classList = 'list-group list-group-flush';
+
+    //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
+    let bloque4 = verificaTarea();
+
+    for (let ind4 = 0; ind4 < bloque4.length; ind4++) {
+        const elemento4 = document.createElement('li');
+        elemento4.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush text-dark';
+        elemento4.innerText = bloque4[ind4].tarea;
+
+        const horas4 = document.createElement('span');
+        horas4.classList = 'badge badge-primary badge-pill';
+        horas4.innerText = 'hrs: ' + bloque4[ind4].hrs;
+
+        elemento4.appendChild(horas4);
+        lista4.appendChild(elemento4);
+    }
+
+    col24.appendChild(lista4);
+    fila2.appendChild(col24);
+    contenido.appendChild(fila2);
 }
 
 function verificaTarea() {
