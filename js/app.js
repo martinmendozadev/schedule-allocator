@@ -1,7 +1,11 @@
 //La verdad no te odio, pero si esperaba más de ti. 0809 
 // Variables y declaracion de Arreglos.
+let fila2, contenido;
 const listaNombres = document.getElementById('lista-nombres');
 const listaActividades = document.getElementById('lista-actividades');
+const ArrayCabeceras = [
+    { titulo: 'Nombre' }, { titulo: 'Lunes' }, { titulo: 'Martes' }, { titulo: 'Miércoles' }, { titulo: 'Jueves' }, { titulo: 'Viernes' }
+];
 const ArrayNombres = [
     { nombre: 'Leila', flag: false },
     { nombre: 'Laura', flag: false },
@@ -76,15 +80,15 @@ function imprimirNombres() {
 
 //Funcion para imprimir las Actividades en el Div Lista-Actividades
 function imprimirActividades() {
-    ArrayActividades.forEach(function (actividad, index) {
+    ArrayActividades.forEach(function (actividad) {
         // crear la pill para horas
         const horas = document.createElement('span');
         horas.classList = 'badge badge-primary badge-pill';
-        horas.innerText = 'hrs: ' + ArrayActividades[index].hrs;
+        horas.innerText = 'hrs: ' + actividad.hrs;
 
         const li = document.createElement('li');
         li.classList = 'list-group-item-action list-group-item d-flex justify-content-between align-items-center list-group-flush';
-        li.innerText = ArrayActividades[index].tarea;
+        li.innerText = actividad.tarea;
         // añade pill al li
         li.appendChild(horas);
         // añade el li al dom
@@ -102,7 +106,7 @@ function eventListener() {
 }
 
 //Cambia de estado lso botones (disable) e inicia a generar las cards
-function generarHorario(e) {
+function generarHorario() {
     //Limpio el div cronograma y cambio el estado de las acciones
     const reinicio = document.getElementById('reiniciar').disabled;
 
@@ -118,9 +122,6 @@ function generarHorario(e) {
 }
 
 //Genero una card para cada empleado y dentro le integro sus actividades
-let fila2;
-let contenido;
-
 function generarTabla() {
     //Contruyo la tabla
     const tabla = document.createElement('table');
@@ -130,24 +131,10 @@ function generarTabla() {
     const encabezado = document.createElement('thead');
     const fila1 = document.createElement('tr');
 
-    //Dentro de la fila de encabezado agrego 6 columnas y sus nombres
-    const columna1 = document.createElement('th');
-    columna1.innerText = 'Nombre';
-
-    const columna2 = document.createElement('th');
-    columna2.innerText = 'Lunes';
-
-    const columna3 = document.createElement('th');
-    columna3.innerText = 'Martes';
-
-    const columna4 = document.createElement('th');
-    columna4.innerText = 'Miercoles';
-
-    const columna5 = document.createElement('th');
-    columna5.innerText = 'Jueves';
-
-    const columna6 = document.createElement('th');
-    columna6.innerText = 'Viernes';
+    //Inserto la cabeza de la tabla.
+    ArrayCabeceras.forEach(element => {
+        encabezado.appendChild(cabezaTabala(element.titulo));
+    });
 
     //Contruyo el cuerpo de la tabla con otra fila
     contenido = document.createElement('tbody');
@@ -162,71 +149,58 @@ function generarTabla() {
         col1.innerText = nombreAleatorio();
         fila2.appendChild(col1);
 
-        //Para imprimir las actividades agrego otra columna y dentro las imprimo con una lista
-        const col2 = document.createElement('td');
-
         //Inicio la contruccion de la lista.
         const lista = document.createElement('ul');
         lista.classList = 'list-group list-group-flush';
 
-        //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
-        let bloque = verificaTarea();
-
-        bloqueDias();
-        bloqueDias();
-        bloqueDias();
-        bloqueDias();
-        bloqueDias();
-
-        col2.appendChild(lista);
-        fila2.appendChild(col2);
-        contenido.appendChild(fila2);
+        //Imprimo los 5 días de la semana con un método
+        for (let index = 0; index < 5; index++) {
+            bloqueDias();
+        }
     }
 
-
-
     //Agrego cada elemento a la tabala
-    encabezado.appendChild(columna1);
-    encabezado.appendChild(columna2);
-    encabezado.appendChild(columna3);
-    encabezado.appendChild(columna4);
-    encabezado.appendChild(columna5);
-    encabezado.appendChild(columna6);
-
     fila1.appendChild(encabezado);
     tabla.appendChild(encabezado);
     tabla.appendChild(contenido);
     cronograma.appendChild(tabla);
 }
 
+function cabezaTabala(dia) {
+    let columna = document.createElement('th');
+    columna.innerText = dia;
+
+    return columna;
+}
+
 function bloqueDias() {
-    //VIERNES//
+    //Reinicio el estado del Arreglo Actividades.
     resetTareas();
     //Para imprimir las actividades agrego otra columna y dentro las imprimo con una lista
-    const col24 = document.createElement('td');
+    const col = document.createElement('td');
 
     //Inicio la contruccion de la lista.
-    const lista4 = document.createElement('ul');
-    lista4.classList = 'list-group list-group-flush';
+    const lista = document.createElement('ul');
+    lista.classList = 'list-group list-group-flush';
 
     //Por cada gloque de actividades genero una fila y lo agrego a la columna 2
-    let bloque4 = verificaTarea();
+    let bloque = verificaTarea();
 
-    for (let ind4 = 0; ind4 < bloque4.length; ind4++) {
-        const elemento4 = document.createElement('li');
-        elemento4.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush text-dark';
-        elemento4.innerText = bloque4[ind4].tarea;
+    for (let ind = 0; ind < bloque.length; ind++) {
+        const elemento = document.createElement('li');
+        elemento.classList = 'list-group-item d-flex justify-content-between align-items-center list-group-flush text-dark';
+        elemento.innerText = bloque[ind].tarea;
 
-        const horas4 = document.createElement('span');
-        horas4.classList = 'badge badge-primary badge-pill';
-        horas4.innerText = 'hrs: ' + bloque4[ind4].hrs;
+        const horas = document.createElement('span');
+        horas.classList = 'badge badge-primary badge-pill';
+        horas.innerText = 'hrs: ' + bloque[ind].hrs;
 
-        elemento4.appendChild(horas4);
-        lista4.appendChild(elemento4);
+        elemento.appendChild(horas);
+        lista.appendChild(elemento);
     }
 
-    col24.appendChild(lista4);
-    fila2.appendChild(col24);
+    col.appendChild(lista);
+    fila2.appendChild(col);
     contenido.appendChild(fila2);
 }
 
@@ -257,7 +231,7 @@ function verificaTarea() {
     }
 
     if (thoras < 8) {
-        console.log('No se pudieron acompelar las horas del empleado ->'+ aux);
+        console.log('No se pudieron acompelar las horas del empleado ->' + aux);
     }
 
     return ArrayAsignacion;
@@ -291,8 +265,7 @@ function nombreAleatorio() {
 
 function tareaAleatoria() {
     let numero = numeroAleatorio(0, ArrayActividades.length - 1);
-    let asignada = false;
-    let actividad;
+    let asignada = false, actividad;
 
     ArrayActividades.forEach(function (disponible) {
         if (!disponible.flag) {
@@ -316,6 +289,6 @@ function tareaAleatoria() {
 
 function resetTareas() {
     ArrayActividades.forEach(function (disponible) {
-        disponible.flag=false;
+        disponible.flag = false;
     });
 }
