@@ -1,5 +1,5 @@
 //La verdad no te odio, pero si esperaba más de ti. 0809 
-// Variables
+// Variables y declaracion de Arreglos.
 const listaNombres = document.getElementById('lista-nombres');
 const listaActividades = document.getElementById('lista-actividades');
 const ArrayNombres = [
@@ -113,8 +113,6 @@ function generarHorario(e) {
 
         generarTabla();
     } else {
-        document.getElementById('reiniciar').disabled = true;
-        document.getElementById('generar').disabled = false;
         location.reload();
     }
 }
@@ -361,7 +359,7 @@ function verificaTarea() {
     }
 
     if (thoras < 8) {
-        alert('No se pudieron acompelar las horas del empleado');
+        console.log('No se pudieron acompelar las horas del empleado ->'+ aux);
     }
 
     return ArrayAsignacion;
@@ -370,7 +368,7 @@ function verificaTarea() {
 function nombreAleatorio() {
     let numero = numeroAleatorio(0, ArrayNombres.length - 1);
     let desocupado = false;
-    let trabajador = 'No se Encontro';
+    let trabajador = 'No existen más trabajadores';
 
     ArrayNombres.forEach(disponible => {
         if (!disponible.flag) {
