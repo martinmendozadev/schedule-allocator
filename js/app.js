@@ -9,9 +9,9 @@ const ArrayCabeceras = [
 const ArrayNombres = [
     { nombre: 'Leila', flag: false },
     { nombre: 'Laura', flag: false },
-    { nombre: 'Fernanda', flag: false }/*,
+    { nombre: 'Fernanda', flag: false },
     { nombre: 'Diana', flag: false },
-    { nombre: 'Paola', flag: false },
+    { nombre: 'Paola', flag: false }/*,
     { nombre: 'Magnolia', flag: false },
     { nombre: 'Alejandra', flag: false },
     { nombre: 'Abigail', flag: false },
@@ -19,36 +19,42 @@ const ArrayNombres = [
     { nombre: 'Gloria', flag: false }*/
 ];
 const ArrayActividades = [
-    { tarea: 'Barrer pasillos', hrs: 1, flag: false },
-    { tarea: 'Trapear pasillos', hrs: 2, flag: false },
-    { tarea: 'Limpiar pizarrones', hrs: 3, flag: false },
-    { tarea: 'Limpiar ventanas', hrs: 4, flag: false },
-    { tarea: 'Sacar la basura de los salones', hrs: 2, flag: false },
-    { tarea: 'Acomodar butacas', hrs: 4, flag: false },
-    { tarea: 'Limpiar barandal', hrs: 1, flag: false },
-    { tarea: 'Barrer cubos de los maestros', hrs: 2, flag: false },
-    { tarea: 'Trapear cubos de los maestros', hrs: 3, flag: false },
-    { tarea: 'Colocar papel de baño', hrs: 5, flag: false },
-    { tarea: 'Quitar telarañas', hrs: 2, flag: false },
-    { tarea: 'Limpiar puertas', hrs: 3, flag: false },
-    { tarea: 'Barrer lobby', hrs: 1, flag: false },
-    { tarea: 'Trapear lobby', hrs: 2, flag: false },
-    { tarea: 'Barrer el laboratorio de robotica', hrs: 5, flag: false },
-    { tarea: 'Trapear el laboratorio de robotica', hrs: 8, flag: false },
-    { tarea: 'Limpiar baño de las niñas superior', hrs: 1, flag: false },
-    { tarea: 'Limpiar baño de las niñas inferior', hrs: 2, flag: false },
-    { tarea: 'Limpiar baño de los niños superior', hrs: 1, flag: false },
-    { tarea: 'Limpiar baño de los niños inferior', hrs: 4, flag: false },
-    { tarea: 'Limpiar espejos de baños', hrs: 2, flag: false },
-    { tarea: 'Rellenar jabón de manos', hrs: 8, flag: false },
-    { tarea: 'Barrer escaleras', hrs: 1, flag: false },
-    { tarea: 'Trapear las escaleras', hrs: 2, flag: false },
-    { tarea: 'Reportar daños a mantenimiento', hrs: 3, flag: false },
-    { tarea: 'Levar al deposito la basura del edificio', hrs: 4, flag: false },
-    { tarea: 'Limpiar mesas de lobby', hrs: 5, flag: false },
-    { tarea: 'Limpiar asientos del lobby', hrs: 3, flag: false },
-    { tarea: 'Recojer la basura de los contenedores de los pasillos', hrs: 1, flag: false },
-    { tarea: 'Limpiar su material de trabajo', hrs: 2, flag: false }
+    { tarea: 'Cita para limpieza 1', hrs: 1, flag: false },
+    { tarea: 'Cita para extracción 1', hrs: 2, flag: false },
+    { tarea: 'Cita para revisión 1', hrs: 3, flag: false },
+    { tarea: 'Cita para colocación de brackets 1', hrs: 4, flag: false },
+    { tarea: 'Cita para colocación de prótesis 1', hrs: 2, flag: false },
+    { tarea: 'Cita para sacar radiografía 1', hrs: 4, flag: false },
+    { tarea: 'Cita para remover brackets 1', hrs: 1, flag: false },
+    { tarea: 'Cita para sacar molde de dientes 1', hrs: 2, flag: false },
+    { tarea: 'Cita para curación 1', hrs: 3, flag: false },
+    { tarea: 'Cita para restaruación de placa 1', hrs: 5, flag: false },
+    { tarea: 'Cita para orientación de cuidados 1', hrs: 2, flag: false },
+    { tarea: 'Cita para colocación de coronas 1', hrs: 3, flag: false },
+    { tarea: 'Cita para limpieza 2', hrs: 1, flag: false },
+    { tarea: 'Cita para extracción 2', hrs: 2, flag: false },
+    { tarea: 'Cita para revisión 2', hrs: 3, flag: false },
+    { tarea: 'Cita para colocación de brackets 2', hrs: 4, flag: false },
+    { tarea: 'Cita para colocación de prótesis 2', hrs: 2, flag: false },
+    { tarea: 'Cita para sacar radiografía 2', hrs: 4, flag: false },
+    { tarea: 'Cita para remover brackets 2', hrs: 1, flag: false },
+    { tarea: 'Cita para sacar molde de dientes 2', hrs: 2, flag: false },
+    { tarea: 'Cita para curación 2', hrs: 3, flag: false },
+    { tarea: 'Cita para restaruación de placa 2', hrs: 5, flag: false },
+    { tarea: 'Cita para orientación de cuidados 2', hrs: 2, flag: false },
+    { tarea: 'Cita para colocación de coronas 2', hrs: 3, flag: false },
+    { tarea: 'Cita para limpieza 3', hrs: 1, flag: false },
+    { tarea: 'Cita para extracción 3', hrs: 2, flag: false },
+    { tarea: 'Cita para revisión 3', hrs: 3, flag: false },
+    { tarea: 'Cita para colocación de brackets 3', hrs: 4, flag: false },
+    { tarea: 'Cita para colocación de prótesis 3', hrs: 2, flag: false },
+    { tarea: 'Cita para sacar radiografía 3', hrs: 4, flag: false },
+    { tarea: 'Cita para remover brackets 3', hrs: 1, flag: false },
+    { tarea: 'Cita para sacar molde de dientes 3', hrs: 2, flag: false },
+    { tarea: 'Cita para curación 3', hrs: 3, flag: false },
+    { tarea: 'Cita para restaruación de placa 3', hrs: 5, flag: false },
+    { tarea: 'Cita para orientación de cuidados 3', hrs: 2, flag: false },
+    { tarea: 'Cita para colocación de coronas 3', hrs: 3, flag: false },
 ];
 
 //Funciones que cargan al iniciar la pagina.
@@ -167,9 +173,9 @@ function generarTabla() {
 }
 
 //Leo y envio las cabeceras de la tabla.
-function cabezaTabala(dia) {
+function cabezaTabala(titulo) {
     let columna = document.createElement('th');
-    columna.innerText = dia;
+    columna.innerText = titulo;
 
     return columna;
 }
