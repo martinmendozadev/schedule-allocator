@@ -166,6 +166,7 @@ function generarTabla() {
     cronograma.appendChild(tabla);
 }
 
+//Leo y envio las cabeceras de la tabla.
 function cabezaTabala(dia) {
     let columna = document.createElement('th');
     columna.innerText = dia;
