@@ -11,12 +11,12 @@ const ArrayNombres = [
     { nombre: 'Laura', flag: false },
     { nombre: 'Fernanda', flag: false },
     { nombre: 'Diana', flag: false },
-    { nombre: 'Paola', flag: false }/*,
+    { nombre: 'Paola', flag: false },
     { nombre: 'Magnolia', flag: false },
     { nombre: 'Alejandra', flag: false },
     { nombre: 'Abigail', flag: false },
     { nombre: 'Enya', flag: false },
-    { nombre: 'Gloria', flag: false }*/
+    { nombre: 'Gloria', flag: false }
 ];
 const ArrayActividades = [
     { tarea: 'Cita para limpieza 1', hrs: 1, flag: false },
@@ -54,7 +54,7 @@ const ArrayActividades = [
     { tarea: 'Cita para curación 3', hrs: 3, flag: false },
     { tarea: 'Cita para restaruación de placa 3', hrs: 5, flag: false },
     { tarea: 'Cita para orientación de cuidados 3', hrs: 2, flag: false },
-    { tarea: 'Cita para colocación de coronas 3', hrs: 3, flag: false },
+    { tarea: 'Cita para colocación de coronas 3', hrs: 3, flag: false }
 ];
 
 //Funciones que cargan al iniciar la pagina.
